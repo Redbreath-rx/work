@@ -18,9 +18,9 @@
 
 ## Windows运行
 
-1. 安装 Python 3.10或以上版本、Docker Desktop，并启动Docker Desktop。Windows上的Docker需要Linux容器模式。
+1. 安装 Python 3.12（可与其他版本共存）、Docker Desktop，并启动Docker Desktop。Windows上的Docker需要Linux容器模式。
 2. 下载源码压缩包并解压。
-3. 双击 `run_windows.bat`。脚本安装依赖，启动MongoDB单节点副本集并初始化演示数据。
+3. 双击 `run_windows.bat`。脚本固定选择Python 3.12，已有不兼容虚拟环境会先备份。脚本安装依赖，启动MongoDB单节点副本集并初始化演示数据。
 4. 保持窗口运行，在本机浏览器打开 `http://127.0.0.1:5000`。
 
 演示账号：`admin`（管理员）、`reader`（普通用户）。演示密码均为 `StoryDemo2026!`。这些账号仅用于本地课程演示。
