@@ -1,0 +1,13 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>{% block title %}民间故事资源库{% endblock %}</title>
+<link rel="stylesheet" href="{{ url_for('static',filename='style.css') }}"></head>
+<body><header><a class="brand" href="{{ url_for('index') }}"><span class="seal">文</span>民间故事资源库</a><nav>
+<a href="{{ url_for('index') }}">浏览故事</a>
+{% if current_user %}<a href="{{ url_for('favorites') }}">我的收藏</a>
+{% if current_user.role == 'admin' %}<a href="{{ url_for('manage') }}">资源管理</a>{% endif %}
+<span class="user">{{ current_user.username }}</span><form class="inline" method="post" action="{{ url_for('logout') }}"><input type="hidden" name="csrf_token" value="{{ csrf_token() }}"><button class="link">退出</button></form>
+{% else %}<a href="{{ url_for('login') }}">登录</a><a class="navbutton" href="{{ url_for('register') }}">注册</a>{% endif %}
+</nav></header><main>
+{% for category,message in get_flashed_messages(with_categories=true) %}<div class="notice {{ category }}">{{ message }}</div>{% endfor %}
+{% block content %}{% endblock %}</main><footer>资源库建设与智能处理实践 · 民间故事资源数据管理系统</footer></body></html>
